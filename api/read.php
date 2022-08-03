@@ -35,7 +35,7 @@
         }
         //push to 'data'
         //convert to JSON and output
-        echo json_encode($post_arr)
+        echo json_encode($post_arr);
     } else {
         echo json_encode(array('message' => 'No post found.'));
     }
