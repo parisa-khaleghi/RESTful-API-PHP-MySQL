@@ -25,7 +25,7 @@
             extract($row);
             $post_item = array(
                 'id' => $id,
-                'title' => $title.
+                'title' => $title,
                 'body' => html_entity_decode($body),
                 'author' => $author,
                 'catergory_id' => $catergory_id,
