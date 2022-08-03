@@ -10,4 +10,8 @@
 
     //instantiate post
     $post = new Post($db);
+
+    //blog post query
+    $result = $post->read();
+    
 ?>
