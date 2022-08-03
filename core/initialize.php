@@ -10,4 +10,7 @@
 
     //load the config file first
     require_once(INC_PATH.DS.'config.php');
+
+    //core classes
+    require_once(CORE_PATH.DS.'post.php');
 ?>
