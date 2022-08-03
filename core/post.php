@@ -32,7 +32,7 @@
                              p.create_at 
                         FROM '.$this->$table.' p LEFT JOIN categories c
                           ON p.category_id = c.id
-                  ORDERED BY p.created_at DESC';
+                  ORDER BY p.created_at DESC';
 
             //prepare statement
             $stmt = $this->$conn->prepare($query);
