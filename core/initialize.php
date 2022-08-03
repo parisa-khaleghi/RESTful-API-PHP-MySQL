@@ -1,6 +1,6 @@
 <?php
     defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);
-    defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'MAMP'.DS.'htdocs'.DS.'RESTful-API-PHP-MySQL');
+    defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'Applications'.DS.'MAMP'.DS.'htdocs'.DS.'RESTful-API-PHP-MySQL');
     //MAMP/htdocs/RESTful-API-PHP-MySQL/includes
     //INC_PATH => include dir path
     defined('INC_PATH') ? null : define('INC_PATH', SITE_ROOT.DS.'includes');
