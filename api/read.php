@@ -7,4 +7,7 @@
     //initializing our api
     //to load our pathes
     include_once('../core/initialize.php');
+
+    //instantiate post
+    $post = new Post($db);
 ?>
