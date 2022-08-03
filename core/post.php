@@ -38,7 +38,7 @@
             $stmt = $this->$conn->prepare($query);
 
             //execute query
-            $stmt=>execute();
+            $stmt->execute();
 
             return $stmt;
         }
