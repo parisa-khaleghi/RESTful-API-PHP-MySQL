@@ -28,8 +28,8 @@
                 'title' => $title,
                 'body' => html_entity_decode($body),
                 'author' => $author,
-                'catergory_id' => $catergory_id,
-                'catergory_name' => $catergory_name,
+                'category_id' => $category_id,
+                'category_name' => $category_name,
             );
             array_push($post_arr['data'], $post_item);
         }
