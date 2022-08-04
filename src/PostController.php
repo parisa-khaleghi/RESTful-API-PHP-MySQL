@@ -39,6 +39,10 @@
                         "id" => $id
                     ]);
                     break;
+                default:
+                    http_response_code(405);
+                    header("Allow: GET, POST");
+                
             }
         }
 
