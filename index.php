@@ -5,6 +5,9 @@
         require __DIR__ . "/src/$class.php";
     });
 
+    //change content-type to json
+    header("Content-type: application/json; charset=UTF-8");
+
     $parts = explode("/", $_SERVER["REQUEST_URI"]);
 
     if($parts[2] != "post"){
