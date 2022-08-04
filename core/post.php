@@ -15,7 +15,7 @@
         public $create_at;
 
         // intitialize this class or particular class
-        //constructor with db connection
+        // constructor with db connection
         public function __construct($db){
             $this->conn = $db;
         }
