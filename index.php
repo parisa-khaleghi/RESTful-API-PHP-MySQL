@@ -17,6 +17,10 @@
 
     $id = $parts[3] ?? null;
 
+    // create an object of Database class
+    $database = new Database("localhost", "restful_api_db", "root", "root");
+    $database->get_connection();
+
     $controller = new Post();
     $controller->process_request($_SERVER["REQUEST_METHOD"], $id);
 ?>
