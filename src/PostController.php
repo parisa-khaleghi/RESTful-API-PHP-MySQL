@@ -26,6 +26,12 @@
                     break;
                 case "POST":
                     $data = (array) json_decode(file_get_contents("php://input"), true);
+                    $errors = $this->get_validation_errors($data);
+                    if(!empty($errors)){
+                        http_response_code(422);
+                        echo json_encode(["errors" => $errors]);
+                        break;
+                    }
                     $id = $this->gateway->create($data);
                     http_response_code(201);
                     echo json_encode([
@@ -34,6 +40,43 @@
                     ]);
                     break;
             }
+        }
+
+        private function get_validation_errors(array $data): array
+        {
+            $errors = [];
+            $i = 0;
+
+            if(empty($data["title"])){
+                $errors[$i] = "title is required.";
+                $i++;
+            }
+
+            if(empty($data["body"])){
+                $errors[$i] = "body is required.";
+                $i++;
+            }
+
+            if(empty($data["author"])){
+                $errors[$i] = "author is required.";
+                $i++;
+            }
+
+            if(empty($data["category_id"])){
+                $errors[$i] = "category_id is required.";
+                $i++;
+            }
+            //for optional data
+            //if(array_key_exists("title", $data)) {}
+
+            // to check the size
+            //  if(filter_var($data["title"], FITER_VALIDATE_INT) === false) {
+            //     $errors[$i] = "title must be an integer.";
+            //     $i++;
+            //  }
+            // https://www.php.net/manual/en/filter.filters.validate.php
+
+            return $errors;
         }
     }
 ?>
