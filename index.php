@@ -6,6 +6,7 @@
     });
 
     //it should be after autoloader
+    set_error_handler("ErrorHandler::handle_error");
     set_exception_handler("ErrorHandler::handle_exception");
 
     //change content-type to json
