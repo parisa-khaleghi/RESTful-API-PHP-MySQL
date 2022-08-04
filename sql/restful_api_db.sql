@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 03, 2022 at 12:26 PM
+-- Generation Time: Aug 04, 2022 at 11:06 AM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -46,23 +46,23 @@ INSERT INTO `categories` (`id`, `name`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Table structure for table `posts`
 --
 
-CREATE TABLE `post` (
+CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
   `author` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `post`
+-- Dumping data for table `posts`
 --
 
-INSERT INTO `post` (`id`, `category_id`, `title`, `body`, `author`, `created_at`) VALUES
+INSERT INTO `posts` (`id`, `category_id`, `title`, `body`, `author`, `created_at`) VALUES
 (1, 1, 'Technology Post One', 'Lorem Ipsum is simply dummy text', 'Sam Smith', '2022-08-03 12:22:29'),
 (2, 2, 'Gaming Post One', 'Lorem Ipsum is simply dummy text', 'Mary Joe', '2022-08-03 12:22:29'),
 (3, 1, 'Technology Post two', 'Lorem Ipsum is simply dummy text', 'Sam Smith', '2022-08-03 12:22:29'),
@@ -79,9 +79,9 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `post`
+-- Indexes for table `posts`
 --
-ALTER TABLE `post`
+ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -92,13 +92,13 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `post`
+-- AUTO_INCREMENT for table `posts`
 --
-ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
