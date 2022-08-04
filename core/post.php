@@ -122,5 +122,23 @@
             printf('Errro %s.\n', $stmt->error);
             return false;
         }
+        //delete function
+        public function delete(){
+            //create query
+            $query = 'DELETE FROM '.$this->table.' WHERE id = :id';
+            //prepare statement
+            $stmt = $this->conn->prepare($query);
+            //clean data
+            $this->id   = htmlspecialchars(strip_tags($this->id));
+            //binding all parameters
+            $stmt->bindParam(':id', $this->id);
+            //execute query
+            if($stmt->execute()){
+                return true;
+            }
+            //print if something goes wrong
+            printf('Errro %s.\n', $stmt->error);
+            return false;
+        }
     }
 ?>
