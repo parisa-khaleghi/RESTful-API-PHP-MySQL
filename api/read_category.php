@@ -8,8 +8,8 @@
     //to load our pathes
     include_once('../core/initialize.php');
 
-    //instantiate post
-    $category = new Post($db);
+    //instantiate category
+    $category = new Category($db);
 
     //blog category query
     $result = $category->read();
