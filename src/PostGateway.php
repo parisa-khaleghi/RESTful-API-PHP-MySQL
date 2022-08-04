@@ -18,8 +18,10 @@
             $stmt = $this->conn->query($sql);
 
             $data = [];
+            $i=0;
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                $data = $row;
+                $data[$i] = $row;
+                $i++;
             }
 
             return $data;
