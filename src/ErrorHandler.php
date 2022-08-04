@@ -6,12 +6,12 @@
         public static function handle_exception(Throwable $exception) : void
         {
             http_response_code(500);
-            
+
             echo json_encode([
-                "code" => $exception.getCode(),
-                "message" =>$exception.getMessage(),
-                "file" =>$exception.getFile(),
-                "line" =>$exception.getLine()
+                "code"    => $exception->getCode(),
+                "message" => $exception->getMessage(),
+                "file"    => $exception->getFile(),
+                "line"    => $exception->getLine()
             ]);
         }
     }
