@@ -3,7 +3,7 @@
     class PostController{
 
         private ProductGateway $gateway;
-        public function __construct(ProductGateway $gateway){
+        public function __construct(PostGateway $gateway){
             $this->gateway = $gateway;
         }
 
