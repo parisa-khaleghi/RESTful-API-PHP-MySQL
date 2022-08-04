@@ -1,11 +1,11 @@
 <?php
 
-    class Post{
+    class Category{
         //sb stuff
         private $conn;
         private $table = 'category';
 
-        //post properties
+        //category properties
         public $id;
         public $name;
         public $create_at;
@@ -16,7 +16,7 @@
             $this->conn = $db;
         }
 
-        //getting posts from our database
+        //getting categories from our database
         public function read(){
             //create query
             $query = 'SELECT * FROM '.$this->table;
@@ -65,7 +65,7 @@
             return false;
         }
         
-        //update post function
+        //update category function
         public function update(){
             //create query
             $query = 'UPDATE '.$this->table.' 
