@@ -59,6 +59,27 @@
             return $data;       
         }
 
+        public function update(array $surrent, array $new): int
+        {
+            $sql = "UPDATE ".$this->table." 
+                    SET title = :title, body = :body, author = :author, category_id = :category_id
+                    WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':title', $new["title"] ?? $surrent["title"], PDO::PARAM_STR);
+            $stmt->bindValue(':body', $new["body"] ?? $surrent["title"], PDO::PARAM_STR);
+            $stmt->bindValue(':author', $new["author"] ?? $surrent["title"], PDO::PARAM_STR);
+            $stmt->bindValue(':category_id', $new["category_id"] ?? $surrent["title"], PDO::PARAM_STR);
+            
+            $stmt->bindValue(':id', $surrent["id"], PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->rowCount();
+        }
+
+        
+
     }
 
 ?>

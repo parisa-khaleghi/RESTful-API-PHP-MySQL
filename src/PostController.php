@@ -16,8 +16,34 @@
         }
 
         public function process_resource_request(string $method, string $id) : void{
-            $post = $this->gateway->get($id);
-            echo json_encode($post);
+            $current_data = $this->gateway->get($id);
+            if(!$current_data){
+                http_response_code(404);
+                echo json_encode([
+                    "message" => str_replace("Controller", "", get_class())." not found."
+                ]);
+                return;
+            }
+
+            switch($method){
+                case 'GET':
+                    echo json_encode($current_data);
+                    break;
+                case 'PATCH':
+                    $data = (array) json_decode(file_get_contents("php://input"), true);
+                    $errors = $this->get_validation_errors($data);
+                    if(!empty($errors)){
+                        http_response_code(422);
+                        echo json_encode(["errors" => $errors]);
+                        break;
+                    }
+                    $rows = $this->gateway->update($current_data, $data);
+                    echo json_encode([
+                        "message" => str_replace("Controller", "", get_class())." $id updated.",
+                        "rows" => $rows
+                    ]); 
+                    break;
+            }
         }
 
         public function process_collection_request(string $method) : void{
