@@ -20,5 +20,8 @@ For RESTful API with PHP/MySQL. This is a full guide for you. You can use the yo
   <li>Do the same things for category table.</li>
 </ol>
 
-# NOTE: If you sraggling somewhere, you can get help from the codes in this repository.
+NOTE: If you sraggling somewhere, you can get help from the codes in this repository.
 
+# URIs
+
+To costum URIs instead of calling the files directly, you can use <a href="https://www.youtube.com/watch?v=X51KOJKrofU" target="_blank">this video</a>.
