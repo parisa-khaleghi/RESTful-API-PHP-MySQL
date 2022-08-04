@@ -16,7 +16,8 @@
         }
 
         public function process_resource_request(string $method, string $id) : void{
-        
+            $post = $this->gateway->get($id);
+            echo json_encode($post);
         }
 
         public function process_collection_request(string $method) : void{
