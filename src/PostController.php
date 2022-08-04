@@ -50,6 +50,9 @@
                         "rows" => $rows
                     ]); 
                     break;
+                default:
+                    http_response_code(405);
+                    header("Allow: GET, PATCH, DELETE");
             }
         }
 
@@ -76,7 +79,6 @@
                 default:
                     http_response_code(405);
                     header("Allow: GET, POST");
-                
             }
         }
 
