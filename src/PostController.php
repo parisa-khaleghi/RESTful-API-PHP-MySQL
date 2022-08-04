@@ -41,6 +41,13 @@
                     echo json_encode([
                         "message" => str_replace("Controller", "", get_class())." $id updated.",
                         "rows" => $rows
+                    ]);
+                    break;
+                case "DELETE":
+                    $rows = $this->gateway->delete($id);
+                    echo json_encode([
+                        "message" => str_replace("Controller", "", get_class())." $id deleted.",
+                        "rows" => $rows
                     ]); 
                     break;
             }
