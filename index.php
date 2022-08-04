@@ -22,8 +22,11 @@
 
     // create an object of Database class
     $database = new Database("localhost", "restful_api_db", "root", "root");
-    $database->get_connection();
+    
+    // instead of using this: $database->get_connection();
+    // use this one:
+    $gateway = new ProductGateway($database);
 
-    $controller = new PostController();
+    $controller = new PostController($gateway);
     $controller->process_request($_SERVER["REQUEST_METHOD"], $id);
 ?>
