@@ -25,7 +25,7 @@
     
     // instead of using this: $database->get_connection();
     // use this one:
-    $gateway = new ProductGateway($database);
+    $gateway = new PostGateway($database);
 
     $controller = new PostController($gateway);
     $controller->process_request($_SERVER["REQUEST_METHOD"], $id);
