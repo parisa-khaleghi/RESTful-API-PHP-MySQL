@@ -5,6 +5,9 @@
         require __DIR__ . "/src/$class.php";
     });
 
+    //it should be after autoloader
+    set_exception_handler("ErrorHandler::handle_exception");
+
     //change content-type to json
     header("Content-type: application/json; charset=UTF-8");
 
