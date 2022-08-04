@@ -24,6 +24,10 @@
                 case "GET":
                     echo json_encode($this->gateway->get_all());
                     break;
+                case "POST":
+                    $data = json_decode(file_get_contents("php://input"), true);
+                    var_dump($data);
+                    break;
             }
         }
     }
