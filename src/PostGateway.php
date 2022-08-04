@@ -20,6 +20,7 @@
             $data = [];
             $i=0;
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                // $row["is_available"] = (bool) $row["is_available"];
                 $data[$i] = $row;
                 $i++;
             }
