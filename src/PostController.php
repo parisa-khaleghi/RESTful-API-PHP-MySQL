@@ -27,6 +27,7 @@
                 case "POST":
                     $data = (array) json_decode(file_get_contents("php://input"), true);
                     $id = $this->gateway->create($data);
+                    http_response_code(201);
                     echo json_encode([
                         "message" => str_replace("Controller", "", get_class())." created.",
                         "id" => $id
