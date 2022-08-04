@@ -28,7 +28,7 @@
                     $data = (array) json_decode(file_get_contents("php://input"), true);
                     $id = $this->gateway->create($data);
                     echo json_encode([
-                        "message" => get_class()." created.",
+                        "message" => str_replace("Controller", "", get_class())." created.",
                         "id" => $id
                     ]);
                     break;
