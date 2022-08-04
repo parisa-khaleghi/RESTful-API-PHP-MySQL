@@ -14,6 +14,15 @@
                 "line"    => $exception->getLine()
             ]);
         }
+
+        public static function handle_error(
+            int $errno, 
+            string $errstr, 
+            string $errfile, 
+            int $errline) : bool
+        {
+            throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+        }
     }
 
 ?>
