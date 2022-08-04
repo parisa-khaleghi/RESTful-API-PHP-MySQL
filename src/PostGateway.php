@@ -27,6 +27,23 @@
 
             return $data;
         }
+
+        public function create(array $data): string
+        {
+            $sql = "INSERT INTO ".$this->table." (title, body, author, category_id)
+                    VALUES (:title, :body, :author, :category_id)";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':title', $data["title"], PDO::PARAM_STR);
+            $stmt->bindValue(':body', $data["body"], PDO::PARAM_STR);
+            $stmt->bindValue(':author', $data["author"], PDO::PARAM_STR);
+            $stmt->bindValue(':category_id', $data["category_id"], PDO::PARAM_STR);
+
+            $stmt->execute();
+
+            return $this->conn->lastInsertId();
+        }
+
     }
 
 ?>
