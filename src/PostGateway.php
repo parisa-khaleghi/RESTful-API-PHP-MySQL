@@ -44,6 +44,21 @@
             return $this->conn->lastInsertId();
         }
 
+        public function get(int $id) : array | false
+        {
+            $sql = "SELECT * 
+                    FROM ".$this->table" 
+                    WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+
+            $stmt->execute();
+
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $data;       
+        }
+
     }
 
 ?>
