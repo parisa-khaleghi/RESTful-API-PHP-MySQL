@@ -67,9 +67,9 @@
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':title', $new["title"] ?? $surrent["title"], PDO::PARAM_STR);
-            $stmt->bindValue(':body', $new["body"] ?? $surrent["title"], PDO::PARAM_STR);
-            $stmt->bindValue(':author', $new["author"] ?? $surrent["title"], PDO::PARAM_STR);
-            $stmt->bindValue(':category_id', $new["category_id"] ?? $surrent["title"], PDO::PARAM_STR);
+            $stmt->bindValue(':body', $new["body"] ?? $surrent["body"], PDO::PARAM_STR);
+            $stmt->bindValue(':author', $new["author"] ?? $surrent["author"], PDO::PARAM_STR);
+            $stmt->bindValue(':category_id', $new["category_id"] ?? $surrent["category_id"], PDO::PARAM_STR);
             
             $stmt->bindValue(':id', $surrent["id"], PDO::PARAM_INT);
 

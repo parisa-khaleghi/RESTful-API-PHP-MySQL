@@ -26,12 +26,12 @@
             }
 
             switch($method){
-                case 'GET':
+                case "GET":
                     echo json_encode($current_data);
                     break;
-                case 'PATCH':
+                case "PATCH":
                     $data = (array) json_decode(file_get_contents("php://input"), true);
-                    $errors = $this->get_validation_errors($data);
+                    $errors = $this->get_validation_errors($data, false);
                     if(!empty($errors)){
                         http_response_code(422);
                         echo json_encode(["errors" => $errors]);
@@ -73,27 +73,28 @@
             }
         }
 
-        private function get_validation_errors(array $data): array
+        private function get_validation_errors(array $data, bool $is_new=true): array
         {
             $errors = [];
             $i = 0;
 
-            if(empty($data["title"])){
+            if($is_new == true && empty($data["title"])){
+                var_dump($is_new);
                 $errors[$i] = "title is required.";
                 $i++;
             }
 
-            if(empty($data["body"])){
+            if($is_new == true && empty($data["body"])){
                 $errors[$i] = "body is required.";
                 $i++;
             }
 
-            if(empty($data["author"])){
+            if($is_new == true && empty($data["author"])){
                 $errors[$i] = "author is required.";
                 $i++;
             }
 
-            if(empty($data["category_id"])){
+            if($is_new == true && empty($data["category_id"])){
                 $errors[$i] = "category_id is required.";
                 $i++;
             }
@@ -105,7 +106,7 @@
             //     $errors[$i] = "title must be an integer.";
             //     $i++;
             //  }
-            // https://www.php.net/manual/en/filter.filters.validate.php
+            // FITER_VALIDATE => https://www.php.net/manual/en/filter.filters.validate.php
 
             return $errors;
         }
