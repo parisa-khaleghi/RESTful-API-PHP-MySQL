@@ -44,13 +44,13 @@
             return $this->conn->lastInsertId();
         }
 
-        public function get(int $id) : array | false
+        public function get(int $id)
         {
             $sql = "SELECT * 
-                    FROM ".$this->table" 
+                    FROM ".$this->table." 
                     WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
             $stmt->execute();
 
