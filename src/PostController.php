@@ -1,0 +1,25 @@
+<?php
+
+    class PostController{
+
+        public function process_request(string $method, ? string $id) : void{
+            if($id){
+                $this->process_resource_request($method, $id);
+            } else {
+                $this->process_collection_request($method);
+            }
+        }
+
+        public function process_resource_request(string $method, string $id) : void{
+        
+        }
+
+        public function process_collection_request(string $method) : void{
+            switch($method){
+                case "GET":
+                    echo json_encode(["id" => "123"]);
+                    break;
+            }
+        }
+    }
+?>
