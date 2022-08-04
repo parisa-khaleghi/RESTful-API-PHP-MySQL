@@ -3,7 +3,7 @@
     class Category{
         //sb stuff
         private $conn;
-        private $table = 'category';
+        private $table = 'categories';
 
         //category properties
         public $id;
