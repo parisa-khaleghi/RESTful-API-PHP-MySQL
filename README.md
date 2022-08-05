@@ -3,6 +3,10 @@ Create RESTful API With PHP/MySQL.
 
 For RESTful API with PHP/MySQL. This is a full guide for you. You can use the youtube video on <a href="https://www.youtube.com/watch?v=dlGtSoigdB0" target="_blank">this link</a>, or follow the steps bellow and use the code in this repository.
 
+NOTE: There are 2 version of this project. The 2nd version is on ../src, ../index.php, and ..//.htaccess.
+
+First will start with the 1st version.
+
 # Start from here
 <ol>
   <li>In project folder, create a "core" folder and a new file "initialize.php" for all our settings.</li>
